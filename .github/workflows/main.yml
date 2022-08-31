@@ -31,5 +31,5 @@ jobs:
           pip install -r requirements.txt
       - name: Command
         run: |
-          { echo "https://www.youtube.com/watch?v=RGvn1LhmwPQ"; echo "~/Output"; echo "5"} | bash vid2ppt.sh
+          (echo https://www.youtube.com/watch?v=RGvn1LhmwPQ; echo ~/Output; echo 5) | bash vid2ppt.sh
   
