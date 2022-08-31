@@ -29,5 +29,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install -r requirements.txt
-          echo -n 'https://www.youtube.com/watch?v=RGvn1LhmwPQ'; Output; 5 | bash vid2ppt.sh
+          echo -n 'https://www.youtube.com/watch?v=RGvn1LhmwPQ'; "Output"; "5" | bash vid2ppt.sh
   
