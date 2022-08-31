@@ -30,6 +30,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           bash vid2ppt.sh
+          echo 'https://www.youtube.com/watch?v=RGvn1LhmwPQ'
           echo 'my_notes'
           echo '5'
   
