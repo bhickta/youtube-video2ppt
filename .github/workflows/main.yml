@@ -31,5 +31,15 @@ jobs:
           pip install -r requirements.txt
       - name: Command
         run: |
-          (echo https://www.youtube.com/watch?v=RGvn1LhmwPQ; echo ~/Output; echo 5) | bash vid2ppt.sh
+          (echo https://www.youtube.com/watch?v=RGvn1LhmwPQ; echo ./Output; echo 5) | bash vid2ppt.sh
+          
+      - name: Force push branch
+        # You may pin to the exact commit or the version.
+        # uses: dfm/force-push-branch-action@84354f169af15e7ec4a46e0830bb9eaa042c4576
+        uses: dfm/force-push-branch-action@v1
+        with:
+          github-token: ${{ secrets.GithubToken }} # GithubToken: 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
+          path: .
+          target-branch: gh-pages
+          commit-message: "Force commit"
   
