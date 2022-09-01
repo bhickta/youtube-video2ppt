@@ -25,8 +25,8 @@ vid2ppt () {
     done
 }
 
-remove_video_ppt () {
-    rm Output/*/*.mp4 Output/*/*.pptx
+remove_video () {
+    rm Output/*/*.mp4
 }
 
 remove_duplicates () {
@@ -46,5 +46,5 @@ vid2ppt
     echo "Success"
 remove_duplicates
     echo "Success"
-# remove_video_ppt
+remove_video
 remove_dupli_outputs
