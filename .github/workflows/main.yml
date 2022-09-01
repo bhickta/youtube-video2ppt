@@ -33,7 +33,7 @@ jobs:
       - name: Running Script
         run: |
           sh script.sh
-          rm -r .git .github difPy y2ppt
+          rm -r .github difPy y2ppt
           rm *.sh
           
       - name: Pushing to a branch
