@@ -24,7 +24,7 @@ def create_ppt(img_path):
     img_path = Path(img_path)
     # img_path = Path(args['path'])
 
-    images = [img.name for img in img_path.iterdir() if img.suffix==".jpg"]
+    images = [img.name for img in img_path.iterdir() if img.suffix
 
     sorted_images = sorted(images, key=natural_sort_key)
 
