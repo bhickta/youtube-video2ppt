@@ -26,14 +26,15 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Installing requirements
         run: |
           pip install -r requirements.txt
-      - name: Command
+
+      - name: Running Script
         run: |
-          (echo https://www.youtube.com/watch?v=PtsQ8xeUX98; echo ./Output; echo 5) | bash vid2ppt.sh
+          sh script.sh
           
-      - name: Force push branch
+      - name: Pushing to a branch
         # You may pin to the exact commit or the version.
         # uses: dfm/force-push-branch-action@84354f169af15e7ec4a46e0830bb9eaa042c4576
         uses: dfm/force-push-branch-action@v1
@@ -42,4 +43,3 @@ jobs:
           path: .
           target-branch: gh-pages
           commit-message: "Force commit"
-  

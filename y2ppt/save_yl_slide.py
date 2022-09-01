@@ -20,7 +20,7 @@ success,image = vidcap.read()
 dir_path = args['path']
 #################### Setting up parameters ################
 
-seconds = 1
+seconds = 60
 fps = vidcap.get(cv2.CAP_PROP_FPS) # Gets the frames per second
 multiplier = fps * seconds
 
@@ -33,7 +33,7 @@ while success:
     success, image = vidcap.read()
     if count==0:
         previous = image
-        # cv2.imwrite(f"{vid_path}/frame{frameId}.jpg", image)
+        cv2.imwrite(f"{vid_path}/frame{frameId}.jpg", image)
     count =+ 1
     
     if frameId % int(multiplier) == 0 and frameId > int(multiplier)*args['start']:

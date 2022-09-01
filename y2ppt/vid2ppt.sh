@@ -80,9 +80,9 @@ title=$(youtube-dl --get-title "$url")
 # echo "$title"
 mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 
-l=$(youtube-dl -o "$dpath/$mod_title/$title.mp4" "$url")
+l=$(youtube-dl -f 134 -o "$dpath/$mod_title/$title.mp4" "$url")
 echo "$l"
 
-python save_yl_slide.py -s $stime -p "$dpath/$mod_title" 
+python y2ppt/save_yl_slide.py -s $stime -p "$dpath/$mod_title" 
 
 

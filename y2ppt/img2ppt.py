@@ -32,7 +32,7 @@ def create_ppt(img_path):
         slide = prs.slides.add_slide(blank_slide_layout) 
         pic = slide.shapes.add_picture(f"{img_path/Path(img)}", Inches(0.5), Inches(0.75), width=Inches(9.2), height=Inches(6)) 
 
-    [f.unlink() for f in img_path.glob("*") if f.is_file()] 
+    # [f.unlink() for f in img_path.glob("*") if f.is_file()] 
     prs.save(img_path/Path('slide_notes.pptx'))
 
 

@@ -1,9 +1,5 @@
 #!/bin/sh
 
-clean () {
-    sed -i '/./d' ids.txt final_urls.txt
-}
-
 extract_playlist_ids () {
     for url in $(cat urls.txt)
     do
@@ -25,18 +21,25 @@ remove_playlist_urls () {
 vid2ppt () {
     for url in $(cat final_urls.txt)
     do
-        (echo $url; echo ./Output; echo 5) | bash vid2ppt.sh
+        (echo $url; echo ./Output; echo 5) | bash y2ppt/vid2ppt.sh
     done
 }
 
+remove_video_ppt () {
+    rm Output/*/*.mp4 Output/*/*.pptx
+}
 
-clean
-    echo "Sucessfully cleaned urls.txt"
+remove_duplicates () {
+   echo "y" | python ../difPy/dif.py -A "Output" -s "low" -d "true"
+}
+
+remove_dupli_outputs () {
+    rm *txt *.json
+}
 extract_playlist_ids
-    echo "Successfully generated ids"
 ids_to_urls
-    echo "Successfully generated urls"
 remove_playlist_urls
-    echo "Successfully removed playlist urls"
 vid2ppt
-    Successfully
+remove_video_ppt
+remove_duplicates
+remove_dupli_outputs
