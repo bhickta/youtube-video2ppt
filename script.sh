@@ -40,6 +40,6 @@ extract_playlist_ids
 ids_to_urls
 remove_playlist_urls
 vid2ppt
-remove_video_ppt
 remove_duplicates
-remove_dupli_outputs
+# remove_video_ppt
+# remove_dupli_outputs
