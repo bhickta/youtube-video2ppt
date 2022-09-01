@@ -34,7 +34,7 @@ remove_duplicates () {
 }
 
 remove_dupli_outputs () {
-    rm *txt *.json
+    rm *.txt *.json
 }
 extract_playlist_ids
     echo "Success"

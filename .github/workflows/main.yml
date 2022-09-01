@@ -34,7 +34,7 @@ jobs:
         run: |
           sh script.sh
           rm -r .git .github difPy y2ppt
-          rm *.txt *.sh
+          rm *.sh
           
       - name: Pushing to a branch
         # You may pin to the exact commit or the version.
