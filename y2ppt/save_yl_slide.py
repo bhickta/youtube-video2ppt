@@ -20,7 +20,7 @@ success,image = vidcap.read()
 dir_path = args['path']
 #################### Setting up parameters ################
 
-seconds = 60
+seconds = 0.5
 fps = vidcap.get(cv2.CAP_PROP_FPS) # Gets the frames per second
 multiplier = fps * seconds
 

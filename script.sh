@@ -47,4 +47,4 @@ vid2ppt
 remove_duplicates
     echo "Success"
 # remove_video_ppt
-# remove_dupli_outputs
+remove_dupli_outputs
