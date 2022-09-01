@@ -38,7 +38,7 @@ class dif:
                                  lower resolution duplicate images that were found are automatically deleted
         silent_del (bool)........! please use with care, as this cannot be undone
                                  True = skips the asking for user confirmation when deleting lower resolution duplicate images
-                                 will only work if "delete" AND "silent_del" are both 
+                                 will only work if "delete" AND "silent_del" are both == True
 
         OUTPUT (set).............a dictionary with the filename of the duplicate images 
                                and a set of lower resultion images of all duplicates
@@ -57,7 +57,7 @@ class dif:
 
         dif._validate_parameters(show_output, show_progress, similarity, px_size, delete, silent_del)
 
-        if directory_B 
+        if directory_B == None:
             # process one directory
             directory_A = dif._process_directory(directory_A)
             img_matrices_A, folderfiles_A = dif._create_imgs_matrix(directory_A, px_size, show_progress)
@@ -85,7 +85,7 @@ class dif:
         self.lower_quality = lower_quality
         self.stats = stats
 
-        if len(result) 
+        if len(result) == 1:
             images = "image"
         else:
             images = "images"
@@ -97,7 +97,7 @@ class dif:
             if delete:
                 if not silent_del:
                     usr = input("Are you sure you want to delete all lower resolution duplicate images? \nThis cannot be undone. (y/n)")
-                    if str(usr) 
+                    if str(usr) == "y":
                         dif._delete_imgs(set(lower_quality))
                     else:
                         print("Image deletion canceled.")
@@ -155,11 +155,11 @@ class dif:
                 if not os.path.isdir(path):
                     try:
                         img = cv2.imdecode(np.fromfile(path, dtype=np.uint8), cv2.IMREAD_COLOR)
-                        if type(img) 
+                        if type(img) == np.ndarray:
                                 img = img[..., 0:3]
                                 img = cv2.resize(img, dsize=(px_size, px_size), interpolation=cv2.INTER_CUBIC)
                                 
-                                if len(img.shape) 
+                                if len(img.shape) == 2:
                                     img = skimage.color.gray2rgb(img)
                                 imgs_matrix.append(img)
                         else:
@@ -277,10 +277,10 @@ class dif:
             similarity = float(similarity)
             ref = similarity
         except:      
-            if similarity 
+            if similarity == "low":
                 ref = 1000
             # search for exact duplicate images, extremly sensitive, MSE < 0.1
-            elif similarity 
+            elif similarity == "high":
                 ref = 0.1
             # normal, search for duplicates, recommended, MSE < 200
             else:
@@ -359,7 +359,7 @@ class dif:
 
     # Function that displays a progress bar during the search
     def _show_progress(count, list, task='processing images'):
-        if count+1 
+        if count+1 == len(list):
             print(f"DifPy {task}: [{count}/{len(list)}] [{count/len(list):.0%}]", end="\r")
             print(f"DifPy {task}: [{count+1}/{len(list)}] [{(count+1)/len(list):.0%}]")          
         else:
@@ -386,7 +386,7 @@ def type_str_int(x):
         return x
 
 # Parameters for when launching difPy via CLI
-if __name__ 
+if __name__ == "__main__":    
     # set CLI arguments
     parser = argparse.ArgumentParser(description='Find duplicate or similar images on your computer with difPy - https://github.com/elisemercury/Duplicate-Image-Finder')
     parser.add_argument("-A", "--directory_A", type=str, help='Directory to search for images.', required=True)

@@ -24,7 +24,7 @@ def create_ppt(img_path):
     img_path = Path(img_path)
     # img_path = Path(args['path'])
 
-    images = [img.name for img in img_path.iterdir() if img.suffix
+    images = [img.name for img in img_path.iterdir() if img.suffix]
 
     sorted_images = sorted(images, key=natural_sort_key)
 
@@ -34,5 +34,3 @@ def create_ppt(img_path):
 
     # [f.unlink() for f in img_path.glob("*") if f.is_file()] 
     prs.save(img_path/Path('slide_notes.pptx'))
-
-

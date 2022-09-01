@@ -37,9 +37,14 @@ remove_dupli_outputs () {
     rm *txt *.json
 }
 extract_playlist_ids
+    echo "Success"
 ids_to_urls
+    echo "Success"
 remove_playlist_urls
+    echo "Success"
 vid2ppt
+    echo "Success"
 remove_duplicates
+    echo "Success"
 # remove_video_ppt
 # remove_dupli_outputs
