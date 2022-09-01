@@ -30,7 +30,7 @@ remove_video_ppt () {
 }
 
 remove_duplicates () {
-   echo "y" | python ../difPy/dif.py -A "Output" -s "low" -d "true"
+   echo "y" | python difPy/dif.py -A "Output" -s "low" -d "true"
 }
 
 remove_dupli_outputs () {
